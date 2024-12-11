@@ -188,16 +188,16 @@ module Elasticsearch
 end
 
 # Helper for the meta-header value for Cloud
-module Elastic
-  # If the version is X.X.X.pre/alpha/beta, use X.X.Xp for the meta-header:
-  def self.client_meta_version
-    regexp = /^([0-9]+\.[0-9]+\.[0-9]+)\.?([a-z0-9.-]+)?$/
-    match = Elasticsearch::VERSION.match(regexp)
-    return "#{match[1]}p" if match[2]
+# module Elastic
+#   # If the version is X.X.X.pre/alpha/beta, use X.X.Xp for the meta-header:
+#   def self.client_meta_version
+#     regexp = /^([0-9]+\.[0-9]+\.[0-9]+)\.?([a-z0-9.-]+)?$/
+#     match = Elasticsearch::VERSION.match(regexp)
+#     return "#{match[1]}p" if match[2]
 
-    Elasticsearch::VERSION
-  end
+#     Elasticsearch::VERSION
+#   end
 
-  # Constant for elastic-transport meta-header
-  ELASTICSEARCH_SERVICE_VERSION = [:es, client_meta_version].freeze
-end
+#   # Constant for elastic-transport meta-header
+#   ELASTICSEARCH_SERVICE_VERSION = [:es, client_meta_version].freeze
+# end
